@@ -1,0 +1,320 @@
+<!-- Run: node plugins/nodes-server -->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+				   maximum-scale=1.0, user-scalable=no">    
+    <title>Shapes Comparison with Gromov-Hausdorff Distance</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/sush.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="lib/css/monokai.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<!-- Title -->
+	<section id="title">
+	  <h3><u>Shape Comparision</u></h3>
+	  <h6 style="font-style: italic">Sushovan MAJHI</h6>
+	  <span class="green">Tulane University<br>January 21, 2020</span>
+	  <br>
+	  <img width="200"
+	       src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/frame.png"/>
+	  <br>
+	  <span class="green">smajhi.com/hg-presentation</span>
+	</section>
+	<!-- Title ends -->
+	
+
+	<!-- Intro -->
+	<section id="myself"
+		 data-background-iframe="https://www.smajhi.com">
+	  <aside class="notes">
+	    
+	  </aside>
+	</section>
+	<!-- Intro ends -->
+	
+	<section id="talk">
+	  <h3><u>Manifest of the Talk</u></h3>
+	  <ul class="timeline" style="font-size:0.6em">
+	    <li class="fragment">
+	      Shape Reconstruction Project
+	    </li>
+	    <li class="fragment">
+	      Shape Comparison
+	    </li>
+	    
+	    <li class="fragment">
+	      Hausdorff Distance
+	    </li>
+
+	    <li class="fragment">
+	      Gromov-Hausdorff Distance
+	    </li>
+
+	    <li class="fragment">
+	      Computing the Gromov-Hausdorff Distance
+	    </li>
+	  
+	    <li class="fragment">
+	      &#127829; Pizza, Discussions, and Questions
+	    </li>
+	  </ul>
+	  <aside class="notes">
+	    claims the Lion's share of my thesis.
+	    
+	    Pizza with my favorite toppings of discussions and questions.
+	  </aside>
+	</section>
+	
+	<!-- Project -->
+	<section id="project">
+	  <h3><u>Project Timeline</u></h3>
+	  <ul class="timeline" style="font-size:0.6em" >
+	    <li class="fragment">
+	      <span class="red">2016</span>
+	      Carola's talk on <span class="green">trajectory-based</span> Map Construction
+	    </li>
+	    <li class="fragment">
+	      <span class="red">Jan, 2017</span>
+	      Proposed <span class="green">topological</span> map construction
+	    </li>
+	    
+	    <li class="fragment">
+	      <span class="red">Nov, 2017</span> 
+	      <b>Topological and Geometric Reconstruction of Metric Graphs in $\mathbb{R}^N$</b><br>
+	      <i>Fall Workshop on Computational Geometry 2017, Stony Brook, NY</i>
+	    </li>
+	    <li class="fragment">
+	      <span class="red">Nov, 2018</span>
+	      Topological and Geometric Reconstruction of Geodesic Subspaces of $\mathbb{R}^N$
+	    </li>
+	    <li class="fragment">
+	      <span class="red">May, 2019</span> 
+	      JS-Based Webapp for visualization <span class="green">software</span>
+	    </li>
+	  </ul>
+	</section>
+	<!-- Project end -->
+	
+	<!-- People -->
+	<section id="collaborators">
+	  <h3><u>Collaborators</u></h3>
+	  <section id="carola">
+	    <img width="500"
+		 src="https://news.tulane.edu/sites/news/files/080916_carola-wenk800_617_pbc.jpg" />
+	    <p>
+	      Carola Wenk<br>
+	      <span class="green">Computer Science, Tulane</span>
+	    </p>
+	  </section>	  
+	  <section id="jeff">
+	    <img width="250"
+		 src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Jeffrey_S._Vitter_%28cropped%29.jpg" />
+	    <p>
+	      Jeff Vitter<br>
+	      <span class="green">Computer Science, University of Mississippi</span>
+	    </p>
+	  </section>
+	</section>
+	<!-- People ends -->
+
+	<!-- Shape Comparison -->
+	<section id="comparison">
+	  <h3><u>Shape Comparison</u></h3>
+	  <aside class="notes">
+	    In topology, shapes are distinguished by the topological features they manifest. 
+
+	    The best class of shapes one always hopes to deal with is manifolds.  
+
+	    Then comes the impious brethren thereof - non-manifold.
+	  </aside>
+	  <section id="manifold">
+ 	    <img width="300" style="border:none;background:none"
+		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/path.png"/>
+	    <img width="200" style="border:none;background:none"
+		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/circle.png" />
+	    <img width="300" style="border:none;background:none"
+		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/torus.png" />
+	    <br>
+	    Manifolds (the good ones)
+	  </section>
+	  <section id="non-manifold">
+	    <img width="300" style="border:none;background:none"
+		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/circles.png" />
+	    <img width="200" style="border:none;background:none"
+		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/graph.png" />
+	    <br>
+	    Non-manifolds (the bad ones)
+	  </section>
+	  <section id="map">
+	    <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=tulane%20university&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+	    </iframe>
+	    <br>
+	    Our shapes of interest (the ugly ones)
+	  </section>
+	</section>
+	<!-- Shape ends -->
+	
+	<section>
+	  <h3><u>Problem Statement</u></h3> We aim to reconstruct
+	  an <span class="red">unknown</span> shape $X$.
+	  <br>
+	  <ul class="timeline" style="font-size: 0.6em">
+	    <li class="fragment">$X$ is a (compact) non-manifold</li>
+	    <li class="fragment">$X$ is a geodesic space</li>
+	    <li class="fragment">We have a sample or
+	      a <span class="green">point-cloud</span> $S$ represented as a
+	      metric space$(S,d_S)$
+	    </li>
+	    <li class="fragment">$S$ is expected to be "dense" in $X$</li>
+	  </ul>
+	</section>
+
+	<section id="sampling">
+	  <h3><u>Shape <span class="green">⟶</span> Sample</u></h3>
+	  <section>
+	    <img width="500" style="border:none;background:none"
+		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/click.jpg" />
+	    <br>
+	    continuous object <span class="green">⟶</span> Array of rgb pixels
+	  </section>
+	  <section>
+	    <img width="700" style="border:none;background:none"
+		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/gps.jpg" />
+	    <br><br>
+	    Road <span class="green">⟶</span> GPS locations 
+	  </section>
+	</section>
+	<section data-background-iframe="https://smajhi.com/shape-reconstruction"></section>
+	
+	<section>
+	  <h3><u>Map Reconstruction</u></h3> Let $G$ be the unknown map of a city.
+	  <br>
+	  <ul class="timeline" style="font-size: 0.8em">
+	    <li class="fragment">$G$ is an embedded graph</li>
+	    <li class="fragment">$G$ has the shortest-path metric</li>
+	    <li class="fragment">$S$ is the GPS locations of cars</li>
+	    <li class="fragment">$S$ is reasonably close to $G$</li>
+	  </ul>
+	</section>
+	
+	<section id="reconstruction">
+	  <h3><u>Data <span class="green">⟶</span> Shape</u></h3>
+	  <h6>Vietoris-Rips at scale $\epsilon>0$</h6>
+	  <img width="200" style="margin:50px;border:none;background:none" src="data.png" />
+	  
+	  <span class="green">⟶</span>
+	  
+	  <img width="200" style="margin:50px;border:none;background:none" src="rips.png" />
+	  <definition>
+	    In a metric space $(M,d)$, each subset $A$ size $k$ with
+	    $diam_d(A)<\epsilon$ is a $(k-1)$-simplex.
+	  </definition>
+	</section>
+	
+	<section data-background-iframe="https://smajhi.com/shape-reconstruction"></section>
+	
+	<section id="manifold-recon">
+	  <h3><u>Manifold Reconstruction</u></h3>
+	    (Adams H. et al.)
+	    <br>
+	    small $\epsilon$ + dense sample
+	    <br>=<br>
+	    Rips complex is a good reconstruction for <span class="green">manifolds</span>
+	</section>
+	<section data-background-iframe="https://smajhi.com/shape-reconstruction"></section>
+
+	<section id="graph-recon">
+	  <h3><u>Graph Reconstruction</u></h3>
+	  small $\epsilon$ + dense sample trick
+	  <br><span class="red">does not work</span><br>
+	  &#128546;
+	</section>
+	<section data-background-iframe="https://smajhi.com/shape-reconstruction"></section>
+	
+	<section>
+	  <h3><u>The Reconstruction Library</u></h3>
+	  <ul class="timeline">
+	    <li class="fragment">I call it <span class="green">Shape Reconstruction</span></li>
+	    <li class="fragment">Language: <span class="green">JavaScript</span></li>
+	    <li class="fragment">Platform: (modern) Web Browsers</li>
+	    <li class="fragment">Hosted on <span class="green">Github</span></li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h3><u>This Presentation</u></h3>
+	  <ul class="timeline">
+	    <li class="fragment">The framework is
+	      called <span class="green">RevealJS</span>
+	    </li>
+	    <li class="fragment">Language: <span class="green">JavaScript</span></li>
+	    <li class="fragment">Platform: (modern) Web Browsers</li>
+	    <li class="fragment">Latex Support: <span class="green">MathJax</span></li>
+	    <li class="fragment">Features: Multiplexing, Notes, Timer, Autoslide, and more.
+	  </ul>
+	</section>
+	
+	<section id="thanks">
+	  The speaker will now accept Questions
+	  <h1>🤔</h1>
+	</section>
+      </div>
+    </div>
+    
+    
+    <!-- Scripts to load after DOM -->
+    <script src="js/reveal.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+      Reveal.initialize({
+      controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'edge',
+      progress: true,
+      defaultTiming: 120,
+      slideNumber: true,
+      hash: true,
+      keyboard: true,
+      center: true,
+      math: {
+      "HTML-CSS" : {webFont: "Neo-Euler"}
+      },
+      <!-- Uncomment if master -->
+      <!-- multiplex: { -->
+      <!-- secret: "1568825019888400408", -->
+      <!-- id: "4b2afa47c6e681e8", -->
+      <!-- url: "https://reveal-js-multiplex-ccjbegmaii.now.sh", -->
+      <!-- }, -->
+      <!-- dependencies: [ -->
+      <!-- { src: 'plugin/highlight/highlight.js', async: true }, -->
+      <!-- { src: 'plugin/notes/notes.js',         async: true }, -->
+      <!-- { src: 'plugin/math/math.js',           async: true}, -->
+      <!-- { src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js',async: true }, -->
+      <!-- { src: 'plugin/multiplex/master.js', async: true }, -->
+      <!-- { src: 'plugin/notes-server/client.js', async: true } -->
+      <!-- ], -->
+      <!-- Uncomment if client -->
+      multiplex: {
+      secret: null,
+      id: "4b2afa47c6e681e8",
+      url: "https://reveal-js-multiplex-ccjbegmaii.now.sh",
+      },
+      dependencies: [
+      { src: 'plugin/highlight/highlight.js', async: true },
+      { src: 'plugin/notes/notes.js',         async: true },
+      { src: 'plugin/math/math.js',           async: true},
+      { src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js',async: true },
+      { src: 'plugin/multiplex/client.js', async: true }
+      ],
+      });
+    </script>
+    <!-- Scripts end -->
+  </body>
+</html>
