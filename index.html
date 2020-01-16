@@ -25,7 +25,7 @@
 	  <img width="200"
 	       src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/frame.png"/>
 	  <br>
-	  <span class="green">smajhi.com/hg-presentation</span>
+	  <span class="green">smajhi.com/gh-presentation</span>
 	</section>
 	<!-- Title ends -->
 	
@@ -40,7 +40,7 @@
 	<!-- Intro ends -->
 	
 	<section id="talk">
-	  <h3><u>Manifest of the Talk</u></h3>
+	  <h3><u>The Manifest</u></h3>
 	  <ul class="timeline" style="font-size:0.6em">
 	    <li class="fragment">
 	      Shape Reconstruction Project
@@ -72,36 +72,6 @@
 	  </aside>
 	</section>
 	
-	<!-- Project -->
-	<section id="project">
-	  <h3><u>Project Timeline</u></h3>
-	  <ul class="timeline" style="font-size:0.6em" >
-	    <li class="fragment">
-	      <span class="red">2016</span>
-	      Carola's talk on <span class="green">trajectory-based</span> Map Construction
-	    </li>
-	    <li class="fragment">
-	      <span class="red">Jan, 2017</span>
-	      Proposed <span class="green">topological</span> map construction
-	    </li>
-	    
-	    <li class="fragment">
-	      <span class="red">Nov, 2017</span> 
-	      <b>Topological and Geometric Reconstruction of Metric Graphs in $\mathbb{R}^N$</b><br>
-	      <i>Fall Workshop on Computational Geometry 2017, Stony Brook, NY</i>
-	    </li>
-	    <li class="fragment">
-	      <span class="red">Nov, 2018</span>
-	      Topological and Geometric Reconstruction of Geodesic Subspaces of $\mathbb{R}^N$
-	    </li>
-	    <li class="fragment">
-	      <span class="red">May, 2019</span> 
-	      JS-Based Webapp for visualization <span class="green">software</span>
-	    </li>
-	  </ul>
-	</section>
-	<!-- Project end -->
-	
 	<!-- People -->
 	<section id="collaborators">
 	  <h3><u>Collaborators</u></h3>
@@ -123,17 +93,62 @@
 	  </section>
 	</section>
 	<!-- People ends -->
-
+	
 	<!-- Shape Comparison -->
+	<section>
+	  <h3>Why Compare Shapes?</h3>
+	  
+	  <section id="distinguish">
+	    <br><br>
+	    <span class="red">1</span>. <u>Distinguish Shapes</u>
+	    <div class="container">
+	      <div class="col">
+		<img width="180"  src="circle.png">
+		<br>circle
+	      </div>
+	      <div class="col">
+		<img width="250"  src="triangle.png">
+		<br>triangle
+	      </div>
+	    </div>
+	    
+	    <br><br>
+	    <theorem class="fragment fade-in">Need a reasonable notion of a <span class="red">
+		distance between two (compact) subsets</span> $A,B$ of a metric metric space
+	      $(X,d)$ so that <br>
+	      large distance $\implies$ very different shape. 
+	    </theorem>
+	  </section>
+	  
+	  <section id="">
+	    <br><br>
+	    <span class="red">2</span>. <u>Classify Shapes</u>
+	    <div class="container">
+	      <div class="col">
+		<img width="330"  src="triangular.png">
+		<br>triangular
+	      </div>
+	      
+	      <div class="col">
+		<img width="300"  src="circular.png">
+		<br>circular
+	      </div>
+	    </div>
+	    <br><br>
+	    <theorem class="fragment fade-in">
+	      The notion of such a distance measure 
+	    </theorem>
+	  </section>
+	  
+	  <section>
+	    <span class="red">3</span>. <u>Quality Guarantee</u>
+
+	  </section>
+	  
+	</section>
+	
 	<section id="comparison">
-	  <h3><u>Shape Comparison</u></h3>
-	  <aside class="notes">
-	    In topology, shapes are distinguished by the topological features they manifest. 
-
-	    The best class of shapes one always hopes to deal with is manifolds.  
-
-	    Then comes the impious brethren thereof - non-manifold.
-	  </aside>
+	  <h3><u>Hausdorff Distance</u></h3>
 	  <section id="manifold">
  	    <img width="300" style="border:none;background:none"
 		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/path.png"/>
@@ -141,8 +156,10 @@
 		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/circle.png" />
 	    <img width="300" style="border:none;background:none"
 		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/torus.png" />
-	    <br>
-	    Manifolds (the good ones)
+	    <definition>
+	      Let $A,B\subseteq\mathbb{R}^N$. The directed Hausdorff distance from $A$ to $B$ is
+	      defined by $$\overrightarrow{d}_H(A,B)=\sup_{a\in A}\inf_{b\in B}\|a-b\|.$$
+	    </definition>
 	  </section>
 	  <section id="non-manifold">
 	    <img width="300" style="border:none;background:none"

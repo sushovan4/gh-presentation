@@ -1,4 +1,19 @@
 /* This is my custom CSS file */
+.container {
+    display: flex;
+}
+
+.col {
+    flex: 1;
+}
+
+    
+
+img {
+    border:none!important;
+    background:none!important;
+}
+
 definition,theorem {
     font-family: roman;
     padding: 10px;
