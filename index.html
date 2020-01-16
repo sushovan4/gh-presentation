@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="css/theme/sush.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="lib/css/monokai.css">
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+      crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="reveal">
@@ -40,7 +44,7 @@
 	<!-- Intro ends -->
 	
 	<section id="talk">
-	  <h3><u>The Manifest</u></h3>
+	  <h3>The Manifest</h3>
 	  <ul class="timeline" style="font-size:0.6em">
 	    <li class="fragment">
 	      Shape Reconstruction Project
@@ -74,7 +78,7 @@
 	
 	<!-- People -->
 	<section id="collaborators">
-	  <h3><u>Collaborators</u></h3>
+	  <h3>Collaborators</h3>
 	  <section id="carola">
 	    <img width="500"
 		 src="https://news.tulane.edu/sites/news/files/080916_carola-wenk800_617_pbc.jpg" />
@@ -96,7 +100,7 @@
 	
 	<!-- Shape Comparison -->
 	<section>
-	  <h3>Why Compare Shapes?</h3>
+	  <h3>Motivation</h3>
 	  
 	  <section id="distinguish">
 	    <br><br>
@@ -111,13 +115,6 @@
 		<br>triangle
 	      </div>
 	    </div>
-	    
-	    <br><br>
-	    <theorem class="fragment fade-in">Need a reasonable notion of a <span class="red">
-		distance between two (compact) subsets</span> $A,B$ of a metric metric space
-	      $(X,d)$ so that <br>
-	      large distance $\implies$ very different shape. 
-	    </theorem>
 	  </section>
 	  
 	  <section id="classify">
@@ -134,10 +131,6 @@
 		<br>circular
 	      </div>
 	    </div>
-	    <br><br>
-	    <theorem class="fragment fade-in">
-	      The notion of such a distance measure 
-	    </theorem>
 	  </section>
 	  
 	  <section id="quality">
@@ -154,125 +147,79 @@
 	    <br>
 	    Map Contruction from GPS data (Berlin)<br>
 	    <span class="green">https://mapconstruction.org</span>
-	    
 	  </section>
 	  
+	  <section>
+	    <block data-header="💡">Need a reasonable notion of a <span class="red"> distance between two (compact) subsets</span> $A,B$ of a metric metric space
+	      $(X,d)$ so that <br>
+	      large distance $\implies$ very different shape. 
+	    </block>
+	    
+	  </section>
 	</section>
 	
 	<section id="hausdorff">
 	  <h3>Hausdorff Distance</h3>
-	  <section id="manifold">
+	  <section id="hausdorff">
 	    <br>
 	    <img width="500" src="atob.png"/>
 	    <br> Nearest neighbor distance
-	    <definition class="fragment">
+	    <definition class="fragment" data-header="Directed Hausdorff Distance">
 	      Let $A,B\subseteq\mathbb{R}^N$. The <span class="red">directed Hausdorff distance
 	      </span> from $A$ to $B$ is
 	      defined by $$\overrightarrow{d}_H(A,B)=\sup_{a\in A}\inf_{b\in B}\|a-b\|.$$
 	    </definition>
 	  </section>
-	  <section id="non-manifold">
-	    <img width="300" style="border:none;background:none"
-		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/circles.png" />
-	    <img width="200" style="border:none;background:none"
-		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/graph.png" />
-	    <br>
-	    Non-manifolds (the bad ones)
-	  </section>
-	  <section id="map">
-	    <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=tulane%20university&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-	    </iframe>
-	    <br>
-	    Our shapes of interest (the ugly ones)
+
+	  <section>
+	    For any two compact $A,B\subseteq\mathbb{R}^N$,
+	    <ol class="green">
+	     <li class="fragment">$d_H(A,B)\geq0$,</li>
+	     <li class="fragment">$d_H(A,B)=d_H(B,A)$,</li>
+	     <li class="fragment">$d_H(A,B)=0\iff A=B$, and </li>
+	     <li class="fragment">$d_H(A,C)\leq d_H(A,B)+d_H(B,C)$.</li>
+	    </ol>
+	    <br><br>
+	    <block data-header="💡" class="fragment fade-in">$d_H$ is sensitive to
+	      <span class="red">Shape</span>
+	      +
+	      <span class="red">Size</span>
+	      +
+	      <span class="red">Placement</span>.
+	    </block>
 	  </section>
 	</section>
+	<section data-background-iframe="https://smajhi.com/shape-reconstruction"></section>
 	<!-- Shape ends -->
 	
 	<section>
-	  <h3><u>Problem Statement</u></h3> We aim to reconstruct
-	  an <span class="red">unknown</span> shape $X$.
+	  <h3>Hausdorff under Euclidean Isometry</h3>
+	  
+	  Let $\mathcal{E}(N)$ denote the class of Eulidean isometries or distance preserving maps
+	  $T:\mathbb{R}^N\to\mathbb{R}^N$ i.e. $\|T(a)-T(b)\|=\|a-b\|$.
+	  <br><br>
+	  <block>
+	    $$d_{H,iso}(A,B)=\inf\limits_{T\in\mathcal{E}(N)}d_H(A,T(B)$$
+	  </block>
 	  <br>
-	  <ul class="timeline" style="font-size: 0.6em">
-	    <li class="fragment">$X$ is a (compact) non-manifold</li>
-	    <li class="fragment">$X$ is a geodesic space</li>
-	    <li class="fragment">We have a sample or
-	      a <span class="green">point-cloud</span> $S$ represented as a
-	      metric space$(S,d_S)$
-	    </li>
-	    <li class="fragment">$S$ is expected to be "dense" in $X$</li>
-	  </ul>
+	  <block data-header="💡" class="fragment fade-in">$d_{H,iso}$ is sensitive to
+	    <span class="red">Shape</span>
+	    +
+	    <span class="red">Size</span>
+	    +
+	    <strike class="red">Placement</strike>.
+	  </block>
 	</section>
 
-	<section id="sampling">
-	  <h3><u>Shape <span class="green">⟶</span> Sample</u></h3>
-	  <section>
-	    <img width="500" style="border:none;background:none"
-		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/click.jpg" />
-	    <br>
-	    continuous object <span class="green">⟶</span> Array of rgb pixels
-	  </section>
-	  <section>
-	    <img width="700" style="border:none;background:none"
-		 src="https://raw.githubusercontent.com/sushovan4/recon-presentation/master/gps.jpg" />
-	    <br><br>
-	    Road <span class="green">⟶</span> GPS locations 
-	  </section>
-	</section>
-	<section data-background-iframe="https://smajhi.com/shape-reconstruction"></section>
-	
-	<section>
-	  <h3><u>Map Reconstruction</u></h3> Let $G$ be the unknown map of a city.
+	<section id="gh">
+	  <h3><u>Gromov-Hausdorff Distance</u></h3>
+	  How to compare shapes that do not have a common embedding?
 	  <br>
-	  <ul class="timeline" style="font-size: 0.8em">
-	    <li class="fragment">$G$ is an embedded graph</li>
-	    <li class="fragment">$G$ has the shortest-path metric</li>
-	    <li class="fragment">$S$ is the GPS locations of cars</li>
-	    <li class="fragment">$S$ is reasonably close to $G$</li>
-	  </ul>
-	</section>
-	
-	<section id="reconstruction">
-	  <h3><u>Data <span class="green">⟶</span> Shape</u></h3>
-	  <h6>Vietoris-Rips at scale $\epsilon>0$</h6>
-	  <img width="200" style="margin:50px;border:none;background:none" src="data.png" />
-	  
-	  <span class="green">⟶</span>
-	  
-	  <img width="200" style="margin:50px;border:none;background:none" src="rips.png" />
-	  <definition>
-	    In a metric space $(M,d)$, each subset $A$ size $k$ with
-	    $diam_d(A)<\epsilon$ is a $(k-1)$-simplex.
-	  </definition>
-	</section>
-	
-	<section data-background-iframe="https://smajhi.com/shape-reconstruction"></section>
-	
-	<section id="manifold-recon">
-	  <h3><u>Manifold Reconstruction</u></h3>
-	    (Adams H. et al.)
-	    <br>
-	    small $\epsilon$ + dense sample
-	    <br>=<br>
-	    Rips complex is a good reconstruction for <span class="green">manifolds</span>
-	</section>
-	<section data-background-iframe="https://smajhi.com/shape-reconstruction"></section>
+	  For example, two abstract metric spaces $(X,d_X)$ and $(Y,d_Y)$.
 
-	<section id="graph-recon">
-	  <h3><u>Graph Reconstruction</u></h3>
-	  small $\epsilon$ + dense sample trick
-	  <br><span class="red">does not work</span><br>
-	  &#128546;
-	</section>
-	<section data-background-iframe="https://smajhi.com/shape-reconstruction"></section>
-	
-	<section>
-	  <h3><u>The Reconstruction Library</u></h3>
-	  <ul class="timeline">
-	    <li class="fragment">I call it <span class="green">Shape Reconstruction</span></li>
-	    <li class="fragment">Language: <span class="green">JavaScript</span></li>
-	    <li class="fragment">Platform: (modern) Web Browsers</li>
-	    <li class="fragment">Hosted on <span class="green">Github</span></li>
-	  </ul>
+	  <block>
+	    $$d_{GH}(X,Y)=\inf d_H(f(X),g(Y)).$$
+	  </block>
 	</section>
 	
 	<section>
@@ -299,6 +246,7 @@
     <!-- Scripts to load after DOM -->
     <script src="js/reveal.js"></script>
     <script src="js/custom.js"></script>
+    
     <script>
       Reveal.initialize({
       controls: true,

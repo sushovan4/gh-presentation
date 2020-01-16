@@ -24,6 +24,21 @@ definition,theorem {
     color: white;
     font-weight: normal;
 }
+
+block {
+    padding: 1em;
+    font-size: 0.6em;
+    display: block;
+    font-weight: normal;
+    border: 2px solid white;
+    border-radius: 10px;
+    text-align: left;
+}
+
+block .header {
+    font-size: 1.5em;
+}
+
 .green {
     color: #3be57f;
 }
