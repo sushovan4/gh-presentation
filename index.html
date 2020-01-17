@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, 
 				   maximum-scale=1.0, user-scalable=no">    
-    <title>Shapes Comparison with Gromov-Hausdorff Distance</title>
+    <title>Shapes Comparison and Gromov-Hausdorff Distance</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/sush.css">
@@ -22,7 +22,7 @@
 
 	<!-- Title -->
 	<section id="title">
-	  <h3><u>Shape Comparison</u></h3>
+	  <h3><u>Shape Comparison and Gromov-Hausdorff Distance</u></h3>
 	  <h6 style="font-style: italic">Sushovan MAJHI</h6>
 	  <span class="green">Tulane University<br>January 21, 2020</span>
 	  <br>
@@ -44,13 +44,10 @@
 	<!-- Intro ends -->
 	
 	<section id="talk">
-	  <h3>The Manifest</h3>
-	  <ul class="timeline" style="font-size:0.6em">
+	  <h3><u>The Manifest</u></h3>
+	  <ul class="timeline" style="font-size:0.7em">
 	    <li class="fragment">
-	      Shape Reconstruction Project
-	    </li>
-	    <li class="fragment">
-	      Shape Comparison
+	      Introduction to Shape Comparison
 	    </li>
 	    
 	    <li class="fragment">
@@ -69,16 +66,11 @@
 	      &#127829; Pizza, Discussions, and Questions
 	    </li>
 	  </ul>
-	  <aside class="notes">
-	    claims the Lion's share of my thesis.
-	    
-	    Pizza with my favorite toppings of discussions and questions.
-	  </aside>
 	</section>
 	
 	<!-- People -->
 	<section id="collaborators">
-	  <h3>Collaborators</h3>
+	  <h3><u>Collaborators</u></h3>
 	  <section id="carola">
 	    <img width="500"
 		 src="https://news.tulane.edu/sites/news/files/080916_carola-wenk800_617_pbc.jpg" />
@@ -100,11 +92,11 @@
 	
 	<!-- Shape Comparison -->
 	<section>
-	  <h3>Motivation</h3>
+	  <h3><u>Shape Comparison</u></h3>
 	  
 	  <section id="distinguish">
 	    <br><br>
-	    <span class="red">1</span>. <u>Distinguish Shapes</u>
+	    <span class="red">1</span>. Distinguish Shapes
 	    <div class="container">
 	      <div class="col">
 		<img width="180" src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/circle.png">
@@ -119,7 +111,7 @@
 	  
 	  <section id="classify">
 	    <br><br>
-	    <span class="red">2</span>. <u>Classify Shapes</u>
+	    <span class="red">2</span>. Classify Shapes
 	    <div class="container">
 	      <div class="col">
 		<img width="330"  src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/triangular.png">
@@ -134,7 +126,7 @@
 	  </section>
 	  
 	  <section id="quality">
-	    <span class="red">3</span>. <u>Quality Guarantee</u>
+	    <span class="red">3</span>. Quality Guarantee
 	    <div class="container">
 	      <div class="col">
 		<img src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/mahmuda.jpg">
@@ -150,16 +142,20 @@
 	  </section>
 	  
 	  <section>
-	    <block data-header="💡">Need a reasonable notion of a <span class="red"> distance between two (compact) subsets</span> $A,B$ of a metric metric space
-	      $(X,d)$ so that <br>
-	      large distance $\implies$ very different shape. 
-	    </block>
-	    
+	    A shape can be modeled as a metric space $(X,d_X)$.
+	    <br>
+	    <p class="fragment fade-in">We need an appropriate notion of a <span class="red">distance
+		measure</span> $d_?(X,Y)$ so that </p>
+	    <br>
+	    <ol class="fragment fade-in" style="font-size: 0.8em">
+	    <li>$d_?(X,Y)$ large $\iff$ very different shape</li>
+	    <li>$d_?(X,Y)$ small $\iff$ $X=Y$ upto a class of deformation.</li>
+	    </ol>
 	  </section>
 	</section>
 	
 	<section id="hausdorff">
-	  <h3>Hausdorff Distance</h3>
+	  <h3><u>Hausdorff Distance</u></h3>
 	  <section id="hausdorff">
 	    <br>
 	    <img width="500" src="atob.png"/>

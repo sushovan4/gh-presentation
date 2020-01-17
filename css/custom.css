@@ -14,7 +14,7 @@ img {
     background:none!important;
 }
 
-definition,theorem {
+theorem {
     font-family: roman;
     padding: 10px;
     font-style: italic;
@@ -25,9 +25,21 @@ definition,theorem {
     font-weight: normal;
 }
 
+definition {
+    font-family: roman;
+    padding: 10px;
+    font-style: italic;
+    font-size: 0.7em;
+    display: block;
+    color: white;
+    font-weight: normal;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
 block {
     padding: 1em;
-    font-size: 0.6em;
+    font-size: 0.7em;
     display: block;
     font-weight: normal;
     border: 2px solid white;
