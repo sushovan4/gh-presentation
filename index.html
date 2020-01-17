@@ -197,24 +197,50 @@
 	<!-- Shape ends -->
 	
 	<section>
-	  <h3>Hausdorff under Euclidean Isometry</h3>
-	  
-	  Let $\mathcal{E}(N)$ denote the class of Eulidean isometries or distance preserving maps
-	  $T:\mathbb{R}^N\to\mathbb{R}^N$ i.e. $\|T(a)-T(b)\|=\|a-b\|$.
-	  <br><br>
-	  <block>
-	    $$d_{H,iso}(A,B)=\inf\limits_{T\in\mathcal{E}(N)}d_H(A,T(B)$$
-	  </block>
-	  <br>
-	  <block data-header="💡" class="fragment fade-in">$d_{H,iso}$ is sensitive to
-	    <span class="red">Shape</span>
-	    +
-	    <span class="red">Size</span>
-	    +
-	    <strike class="red">Placement</strike>.
-	  </block>
-	</section>
+	  <h3><u>Hausdorff under Euclidean Isometry</u></h3>
 
+	  <section>
+	      $d_H($◤, ◢ $)=$ large.
+	      
+	      <br><br>
+	      <block style="font-size: 0.6em" class="fragment">
+		Let $\mathcal{E}(N)$ denote the class
+		of <span class="red">Eulidean isometries</span> or distance
+		preserving maps $T:\mathbb{R}^N\to\mathbb{R}^N$
+		i.e. $\|T(a)-T(b)\|=\|a-b\|$.
+		<br><br>
+		<ol>
+		  <li class="fragment fade-in">For $N=1$, $T$ is
+		    <span class="green">translation</span> or
+		    <span class="green">reflection</span>.</li>
+		  <br>
+		  <li class="fragment fade-in">
+		    For $N=2$, $T$ is <span class="green">rotation</span>,
+		    <span class="green">translation</span> or
+		    <span class="green">reflection</span>.</li>
+		</ol>
+	      </block>
+	      
+	      
+	  </section>
+	  
+	  <section>
+	    For $X,Y\subseteq\mathbb{R}^N$, we define
+	    $$d_{H,iso}(X,Y)=\inf\limits_{T\in\mathcal{E}(N)}d_H(X,T(X))$$
+
+	      
+	    <block data-header="💡">$d_{H,iso}$ is sensitive to
+	      <span class="red">Shape</span>
+	      +
+	      <span class="red">Size</span>
+	      +
+	      <strike class="red">Placement</strike>.
+	      <br>
+	      $d_{H,iso}($◤, ◢ $)=0$.
+	    </block>
+	  </section>
+	</section>
+	
 	<section id="gh">
 	  <h3><u>Gromov-Hausdorff Distance</u></h3>
 	  How to compare shapes that do not have a common embedding?
@@ -225,7 +251,12 @@
 	    $$d_{GH}(X,Y)=\inf d_H(f(X),g(Y)).$$
 	  </block>
 	</section>
-	
+
+	<section>
+	  <h3><u>$d_H$ vs $d_{H,iso}$</u></h3>
+	</section>
+
+	<section data-background-iframe="https://arxiv.org/pdf/1912.13008.pdf"></section> 
 	<section>
 	  <h3><u>This Presentation</u></h3>
 	  <ul class="timeline">
