@@ -147,9 +147,14 @@
 	    <p class="fragment fade-in">We need an appropriate notion of a <span class="red">distance
 		measure</span> $d_?(X,Y)$ so that </p>
 	    <br>
-	    <ol class="fragment fade-in" style="font-size: 0.8em">
-	    <li>$d_?(X,Y)$ large $\iff$ very different shape</li>
-	    <li>$d_?(X,Y)$ small $\iff$ $X=Y$ upto a class of deformation.</li>
+	    <ol style="font-size: 0.8em">
+	      <li  class="fragment fade-in">
+		$d_?(X,Y)$ defines a pseudo-metric on the class of metric spaces.
+	      </li>
+	      <li  class="fragment fade-in">
+		$d_?(X,Y)$ large $\iff$ very different shape</li>
+	      <li  class="fragment fade-in">
+		$d_?(X,Y)$ small $\iff$ $X=Y$ upto a class of deformation.</li>
 	    </ol>
 	  </section>
 	</section>
@@ -159,7 +164,10 @@
 	  <section id="hausdorff">
 	    <br>
 	    <img width="500" src="atob.png"/>
-	    <br> Nearest neighbor distance
+	    <p style="font-size:0.5em">Nearest neighbor distance<br>
+	      <span class="red">Red points</span> $\to$ <span class="green"> green points</span>
+	    </p>
+	    
 	    <definition class="fragment" data-header="Directed Hausdorff Distance">
 	      Let $A,B\subseteq\mathbb{R}^N$. The <span class="red">directed Hausdorff distance
 	      </span> from $A$ to $B$ is
