@@ -220,8 +220,6 @@
 		    <span class="green">reflection</span>.</li>
 		</ol>
 	      </block>
-	      
-	      
 	  </section>
 	  
 	  <section>
@@ -253,9 +251,46 @@
 	</section>
 
 	<section>
-	  <h3><u>$d_H$ vs $d_{H,iso}$</u></h3>
+	  <h3><u>$d_{GH}$ vs $d_{H,iso}$</u></h3>
+
+	  <section>
+	    Let $X,Y\subseteq(\mathbb{R}^N,\|\cdot\|)$ be compact. Then, both
+	    $d_{GH}(X,Y)$ and $d_{H,iso}(X,Y)$ are defined.
+	    
+	    <block class="fragment fade-in" data-header="<u>Memoli '12</u>">
+	      $$d_{GH}(X,Y)\leq d_{H,iso}(X,Y)\leq c_N\sqrt{Md_{GH}},$$
+	      where $M=\max\{diam(X),diam(Y)\}$.
+	    </block>
+	  </section>
+	  
+	  <section>
+	    <block data-header="<u>Sush et al '19</u>">
+	      For $X,Y\subseteq\mathbb{R}^1$, we have $$d_{GH}(X,Y)\leq
+	      d_{H,iso}(X,Y)\leq\left(1+\frac{1}{4}\right)d_{GH},$$ and the
+	      upper bound is tight.
+	    </block>    
+	  </section>
 	</section>
 
+	<section>
+	  <h3><u>Computing $d_{GH}$</u></h3>
+	  <section>
+	    <block data-header="<u class='green'>Fact</u>">
+	      For $|X|,|Y|\leq k$, compuing $d_{GH}(X,Y)$ takes $O(2^k)$ time. 
+	    </block>
+	    <br>
+	    <block data-header="<u class='green'>Fact</u>" class="fragment fade-in">
+	      For $X,Y\subset\mathbb{R}^1$ and $|X|,|Y|\leq k$, compuing
+	      $d_{H,iso}(X,Y)$ takes $O(k\log{k})$ time.
+	    </block>
+	  </section>
+
+	  <section>
+	    
+	    
+	  </section>
+	</section>
+	
 	<section data-background-iframe="https://arxiv.org/pdf/1912.13008.pdf"></section> 
 	<section>
 	  <h3><u>This Presentation</u></h3>
@@ -271,7 +306,8 @@
 	</section>
 	
 	<section id="thanks">
-	  The speaker will now accept Questions
+	  The speaker will now accept<br>
+	  <span class="red" style="font-size:2em">QUESTIONS</span>.
 	  <h1>🤔</h1>
 	</section>
       </div>
