@@ -240,16 +240,25 @@
 	</section>
 	
 	<section id="gh">
-	  <h3><u>Gromov-Hausdorff Distance</u></h3>
-	  How to compare shapes that do not have a common embedding?
-	  <br>
-	  For example, two abstract metric spaces $(X,d_X)$ and $(Y,d_Y)$.
+	  <h3><u>Gromov-Hausdorff Distance</u></h3>	 
+	  <section>
+	    <br>
+	    How to compare shapes that do not have a common embedding?
+	    <div class="fragment fade-in">
+	      <img width="400" src="gh.png"/>
+	      <p style="font-size: 0.5em">Isometric Embedding</p>
+	    </div>
+	  </section>
 
-	  <block>
-	    $$d_{GH}(X,Y)=\inf d_H(f(X),g(Y)).$$
-	  </block>
+	  <section>
+	    For example, two abstract metric spaces $(X,d_X)$ and $(Y,d_Y)$.
+	    <br><br>
+	    <block>
+	      $$d_{GH}(X,Y)=\inf\limits_{f,g,Z} d^Z_H(f(X),g(Y)).$$
+	    </block>
+	  </section>
 	</section>
-
+	  
 	<section>
 	  <h3><u>$d_{GH}$ vs $d_{H,iso}$</u></h3>
 
@@ -271,9 +280,10 @@
 	    </block>    
 	  </section>
 	</section>
-
+	
 	<section>
 	  <h3><u>Computing $d_{GH}$</u></h3>
+	  
 	  <section>
 	    <block data-header="<u class='green'>Fact</u>">
 	      For $|X|,|Y|\leq k$, compuing $d_{GH}(X,Y)$ takes $O(2^k)$ time. 
@@ -285,6 +295,27 @@
 	    </block>
 	  </section>
 
+	  <section>
+	    Sometimes, computing the exact <green>optimal solution</green> ($s_{opt}$) to an
+	    <green>optimization problem</green> is
+	    <red style="font-size: 1.3em">HARD</red>.
+
+	    <br><br>
+	    <div  class="fragment fade-in">
+	      <div class="divider">💡</div><br>
+	      Computing an <green>approximate solution</green> ($s_{appx}$) is sometimes
+	      more <green>efficent</green>. 
+	    </div>
+	  </section>
+
+	  <section>
+	    <definition data-header="Approximation Algorithm">
+	      For $\rho>1$, if we have $$s_{opt}\leq s_{appx}\leq\rho s_{opt},$$
+	      then the algorithm is called an approximation algorithm with an
+	      approximation factor  <green>$\rho$</green> .
+	    </definition>
+	  </section>
+	  
 	  <section>
 	    
 	    

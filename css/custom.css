@@ -1,4 +1,26 @@
 /* This is my custom CSS file */
+.divider {
+    position: relative;
+    margin: auto;
+    width: 0;
+    height: 0.15em;
+    background-color: white;
+    transition: width 1s ease;
+}
+
+.divider .content {
+    background: #191919;
+    padding: 3px;
+    display: inline-block;
+    transform: translateY(-50%);
+}
+
+green {
+    color: #3be57f; 
+}
+red {
+    color: red;
+}
 .container {
     display: flex;
 }
@@ -26,6 +48,7 @@ theorem {
 }
 
 definition {
+    text-align: left;
     font-family: roman;
     padding: 10px;
     font-style: italic;
