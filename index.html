@@ -63,7 +63,9 @@
 	    </li>
 	  
 	    <li class="fragment">
-	      &#127829; Pizza, Discussions, and Questions
+	      <green>Questions</green>, <green>Discussions</green>, and 
+	      &#127829; <red>Pizza</red>.
+
 	    </li>
 	  </ul>
 	</section>
@@ -92,7 +94,7 @@
 	
 	<!-- Shape Comparison -->
 	<section>
-	  <h3><u>Shape Comparison</u></h3>
+	  <h3><u>Motivation</u></h3>
 	  
 	  <section id="distinguish">
 	    <br><br>
@@ -137,10 +139,13 @@
 	      </div>
 	    </div>
 	    <br>
-	    Map Contruction from GPS data (Berlin)<br>
+	    Map Construction from GPS data (Berlin)<br>
 	    <span class="green">https://mapconstruction.org</span>
 	  </section>
-	  
+	</section>
+
+	<section>
+	  <h3><u>Shape Comparison</u></h3>
 	  <section>
 	    A shape can be modeled as a metric space $(X,d_X)$.
 	    <br>
@@ -154,7 +159,7 @@
 	      <li  class="fragment fade-in">
 		$d_?(X,Y)$ large $\iff$ very different shape</li>
 	      <li  class="fragment fade-in">
-		$d_?(X,Y)$ small $\iff$ $X=Y$ upto a class of deformation.</li>
+		$d_?(X,Y)$ small $\iff$ $X=Y$ up to a class of deformation.</li>
 	    </ol>
 	  </section>
 	</section>
@@ -184,28 +189,32 @@
 	     <li class="fragment">$d_H(A,C)\leq d_H(A,B)+d_H(B,C)$.</li>
 	    </ol>
 	    <br><br>
-	    <block data-header="💡" class="fragment fade-in">$d_H$ is sensitive to
+
+	    <div class="fragment fade-in">
+	      <div class="divider">💡</div><br>
+	      $d_H$ is sensitive to
 	      <span class="red">Shape</span>
 	      +
 	      <span class="red">Size</span>
 	      +
 	      <span class="red">Placement</span>.
-	    </block>
+	    </div>
 	  </section>
 	</section>
 	<section data-background-iframe="https://smajhi.com/shape-reconstruction"></section>
 	<!-- Shape ends -->
 	
 	<section>
-	  <h3><u>Hausdorff under Euclidean Isometry</u></h3>
+	  <h3><u>Hausdorff under Isometry</u></h3>
 
 	  <section>
+	    <br>
 	      $d_H($◤, ◢ $)=$ large.
 	      
 	      <br><br>
-	      <block style="font-size: 0.6em" class="fragment">
+	      <block style="font-size: 0.8em" class="fragment">
 		Let $\mathcal{E}(N)$ denote the class
-		of <span class="red">Eulidean isometries</span> or distance
+		of <span class="red">Euclidean isometries</span> or distance
 		preserving maps $T:\mathbb{R}^N\to\mathbb{R}^N$
 		i.e. $\|T(a)-T(b)\|=\|a-b\|$.
 		<br><br>
@@ -223,11 +232,14 @@
 	  </section>
 	  
 	  <section>
-	    For $X,Y\subseteq\mathbb{R}^N$, we define
+	    <definition data-header="Normalized Hausdorff Distance">
+	      For $X,Y\subseteq\mathbb{R}^N$, we define
 	    $$d_{H,iso}(X,Y)=\inf\limits_{T\in\mathcal{E}(N)}d_H(X,T(X))$$
-
-	      
-	    <block data-header="💡">$d_{H,iso}$ is sensitive to
+	    </definition>
+	      <br>
+	    <div class="fragment fade-in">
+	      <div class="divider">💡</div><br>
+	      $d_{H,iso}$ is sensitive to
 	      <span class="red">Shape</span>
 	      +
 	      <span class="red">Size</span>
@@ -235,7 +247,7 @@
 	      <strike class="red">Placement</strike>.
 	      <br>
 	      $d_{H,iso}($◤, ◢ $)=0$.
-	    </block>
+	    </div>
 	  </section>
 	</section>
 	
@@ -286,11 +298,11 @@
 	  
 	  <section>
 	    <block data-header="<u class='green'>Fact</u>">
-	      For $|X|,|Y|\leq k$, compuing $d_{GH}(X,Y)$ takes $O(2^k)$ time. 
+	      For $|X|,|Y|\leq k$, computing $d_{GH}(X,Y)$ takes $O(2^k)$ time. 
 	    </block>
 	    <br>
 	    <block data-header="<u class='green'>Fact</u>" class="fragment fade-in">
-	      For $X,Y\subset\mathbb{R}^1$ and $|X|,|Y|\leq k$, compuing
+	      For $X,Y\subset\mathbb{R}^1$ and $|X|,|Y|\leq k$, computing
 	      $d_{H,iso}(X,Y)$ takes $O(k\log{k})$ time.
 	    </block>
 	  </section>
@@ -304,7 +316,7 @@
 	    <div  class="fragment fade-in">
 	      <div class="divider">💡</div><br>
 	      Computing an <green>approximate solution</green> ($s_{appx}$) is sometimes
-	      more <green>efficent</green>. 
+	      more <green>efficient</green>. 
 	    </div>
 	  </section>
 
@@ -366,7 +378,7 @@
       <!-- Uncomment if master -->
       <!-- multiplex: { -->
       <!-- secret: "15794407689611228817", -->
-      <!-- id: "4b2afa47c6e681e8", -->
+      <!-- id: "6962fd3b58568ccb", -->
       <!-- url: "https://reveal-js-multiplex-ccjbegmaii.now.sh", -->
       <!-- }, -->
       <!-- dependencies: [ -->
