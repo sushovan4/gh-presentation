@@ -43,7 +43,7 @@
 	<!-- Intro ends -->
 	
 	<section id="talk">
-	  <h3><u>The Manifest</u></h3>
+	  <h3><u>The Manifesto</u></h3>
 	  <ul class="timeline" style="font-size:0.7em">
 	    <li class="fragment">
 	      Introduction to Shape Comparison
@@ -169,9 +169,9 @@
 	  <h3><u>Hausdorff Distance</u></h3>
 	  <section id="hausdorff">
 	    <br>
-	    <img width="500" src="atob.png"/>
-	    <p style="font-size:0.5em">Nearest neighbor distance<br>
-	      <span class="red">Red points</span> $\to$ <span class="green"> green points</span>
+	    <img width="300" src="atob.png"/>
+	    <p style="font-size:0.5em">Nearest neighbor distance
+	      (<span class="red">red points</span> $\to$ <span class="green"> green points</span>).
 	    </p>
 	    
 	    <definition class="fragment" data-header="Directed Hausdorff Distance">
@@ -182,13 +182,32 @@
 	  </section>
 
 	  <section>
-	    For any two compact $A,B\subseteq\mathbb{R}^N$,
+	    <definition data-header="(Undirected) Hausdorff Distance">
+	      For any two compact $X,Y\subset\mathbb{R}^N$,
+	      $$d_H(X,Y)=\max\left\{\overrightarrow{d}_H(X,Y),\overrightarrow{d}_H(Y,X)\right\}$$
+	    </definition>
+	    <br>
+	    <definition class="fragment fade-in" data-header="Hausdorff Distance">
+	      For any two compact $X,Y\subset(Z,d_Z)$,
+	      $$d^Z_H(X,Y)=\max\left\{\overrightarrow{d}^Z_H(X,Y),\overrightarrow{d}^Z_H(Y,X)\right\}$$
+	    </definition>
+	  </section>
+	  
+	  <section>
 	    <ol class="green">
-	     <li class="fragment">$d_H(A,B)\geq0$,</li>
-	     <li class="fragment">$d_H(A,B)=d_H(B,A)$,</li>
-	     <li class="fragment">$d_H(A,B)=0\iff A=B$, and </li>
-	     <li class="fragment">$d_H(A,C)\leq d_H(A,B)+d_H(B,C)$.</li>
+	      <li>$d^Z_H(X,Y)\geq0$,</li><br>
+	      <li class="fragment">$d^Z_H(X,Y)=d_H(Y,X)$,</li><br>
+	      <li class="fragment">$d^Z_H(X,Y)=0\iff X=Y$, and </li><br>
+	      <li class="fragment">$d^Z_H(A,C)\leq d_H(A,B)+d_H(B,C)$.</li>
 	    </ol>
+	  </section>
+	  
+	  <section>
+	    <block>
+	      The Hausdorff distance induces a <green>complete metric space</green> on the set of
+	      all <green>compact</green> subsets of a metric space.
+	    </block>
+	    
 	    <br><br>
 
 	    <div class="fragment fade-in">
