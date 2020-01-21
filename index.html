@@ -39,12 +39,12 @@
 	    feedback.  The talks here have undoubtedly helped me to express
 	    myself more eloquently. I hope the future students will continue to
 	    keep up the tradition.
-
+	    <br>
 	    Without further adieu, let me start.
-
+	    <br>
 	    Today, I will walk you through the regime of Shape Reconstruction and introduce
 	    a few related notions, like Hausdorff and Gromov-Hausdorff distance.
-
+	    <br>
 	    For this talk, I am using a new technology. The idea is we can get a (client) copy
 	    of the presentation on your device by either scanning the QR code or by hitting this
 	    url using your browser. Then, you can follow along as I move through the slides. 
@@ -59,7 +59,7 @@
 	       src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/frame.png"/>
 	  <br>
 	  Scan the above QR or hit the following url:
-	  <span class="green">https://smajhi.com/gh-presentation</span>
+	  <span class="green">smajhi.com/gh-presentation</span>
 	</section>
 	<!-- Title ends -->
 	
@@ -207,7 +207,7 @@
 	  <h3><u>Hausdorff Distance</u></h3>
 	  <section id="hausdorff">
 	    <br>
-	    <img width="300" src="atob.png"/>
+	    <img width="300" src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/atob.png"/>
 	    <p style="font-size:0.5em">Nearest neighbor distance
 	      (<span class="red">red points</span> $\to$ <span class="green"> green points</span>).
 	    </p>
@@ -234,9 +234,9 @@
 	  <section>
 	    <ol class="green">
 	      <li>$d^Z_H(X,Y)\geq0$,</li><br>
-	      <li class="fragment">$d^Z_H(X,Y)=d_H(Y,X)$,</li><br>
+	      <li class="fragment">$d^Z_H(X,Y)=d^Z_H(Y,X)$,</li><br>
 	      <li class="fragment">$d^Z_H(X,Y)=0\iff X=Y$, and </li><br>
-	      <li class="fragment">$d^Z_H(A,C)\leq d_H(A,B)+d_H(B,C)$.</li>
+	      <li class="fragment">$d^Z_H(A,C)\leq d^Z_H(A,B)+d^Z_H(B,C)$.</li>
 	    </ol>
 	  </section>
 	  
@@ -292,7 +292,7 @@
 	  <section>
 	    <definition data-header="Normalized Hausdorff Distance">
 	      For $X,Y\subseteq\mathbb{R}^N$, we define
-	    $$d_{H,iso}(X,Y)=\inf\limits_{T\in\mathcal{E}(N)}d_H(X,T(X))$$
+	    $$d_{H,iso}(X,Y)=\inf\limits_{T\in\mathcal{E}(N)}d_H\left(X,T(Y)\right)$$
 	    </definition>
 	      <br>
 	    <div class="fragment fade-in">
@@ -315,17 +315,17 @@
 	    <br>
 	    How to compare shapes that do not have a common embedding?
 	    <div class="fragment fade-in">
-	      <img width="400" src="gh.png"/>
+	      <img width="400" src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/gh.png"/>
 	      <p style="font-size: 0.5em">Isometric Embedding</p>
 	    </div>
 	  </section>
 
 	  <section>
-	    For example, two abstract metric spaces $(X,d_X)$ and $(Y,d_Y)$.
-	    <br><br>
-	    <block>
+	   
+	    <definition data-header="Gromov-Hausdorff Distance">
+	      For two abstract metric spaces $(X,d_X)$ and $(Y,d_Y)$, we define
 	      $$d_{GH}(X,Y)=\inf\limits_{f,g,Z} d^Z_H(f(X),g(Y)).$$
-	    </block>
+	    </definition>
 	  </section>
 	</section>
 	  
@@ -337,15 +337,15 @@
 	    $d_{GH}(X,Y)$ and $d_{H,iso}(X,Y)$ are defined.
 	    
 	    <block class="fragment fade-in" data-header="<u>Memoli '12</u>">
-	      $$d_{GH}(X,Y)\leq d_{H,iso}(X,Y)\leq c_N\sqrt{Md_{GH}},$$
+	      $$d_{GH}(X,Y)\leq d_{H,iso}(X,Y)\leq c_N\sqrt{Md_{GH}(X,Y)},$$
 	      where $M=\max\{diam(X),diam(Y)\}$.
 	    </block>
 	  </section>
 	  
 	  <section>
-	    <block data-header="<u>Sush et al '19</u>">
+	    <block data-header="<u>Majhi et al. '19</u>">
 	      For $X,Y\subseteq\mathbb{R}^1$, we have $$d_{GH}(X,Y)\leq
-	      d_{H,iso}(X,Y)\leq\left(1+\frac{1}{4}\right)d_{GH},$$ and the
+	      d_{H,iso}(X,Y)\leq\left(1+\frac{1}{4}\right)d_{GH}(X,Y),$$ and the
 	      upper bound is tight.
 	    </block>    
 	  </section>
@@ -387,8 +387,16 @@
 	  </section>
 	  
 	  <section>
-	    
-	    
+	    <block data-header="">
+	      $$d_{GH}(X,Y)\leq
+	      d_{H,iso}(X,Y)\leq\left(1+\frac{1}{4}\right)d_{GH}(X,Y),$$
+	    </block>    
+	    <br>
+	    <div class="fragment">
+	      <div class="divider">💡</div><br>
+	      $d_{H,iso}$ approximates $d_{GH}$ with an approximate factor of
+	      $\left(1+\frac{1}{4}\right)$.
+	    </div>
 	  </section>
 	</section>
 	
